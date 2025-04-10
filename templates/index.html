@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Users infos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #1c1c1c;
+            color: white;
+        }
+        h1{
+            position: absolute;
+            left: 30%;
+            top: -55%;
+            width: 100%;
+            font-size: 50px;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        form{
+            position: absolute;
+            left: 40%;
+            top: 15%;
+            transform: translate(-50%, -50%);
+        }
+        ul{
+            position: absolute;
+            left: 40%;
+            top: 30%;
+            transform: translate(-55%, -55%);
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 600;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .infos-titre{
+            position: absolute;
+            left: 40%;
+            top: 20%;
+            transform: translate(-100%, -100%);
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 600;
+            padding: 10px;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text{
+            background: black;
+            color: #dc2743;
+            font-family: 'Lucida Handwriting', 'Segoe Script', 'Comic Sans MS', cursive;
+            border: black;
+            border-radius: 50px;
+        }
+        .button{
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 5px;
+        }
+        @media screen and (max-width: 502px)  {
+            .button{
+                font-size: 10px;
+           }
+        }
+        @media screen and (max-width: 480px)  {
+            .button{
+                font-size: 8px;
+           }
+           ul{
+                font-size: 15px;
+           }
+           .infos-titre{
+                font-size: 15px;
+           }
+        }
+        @media screen and (max-width: 480px)  {
+            .button{
+                width: 60px;
+                height: 20px;
+                font-size: 10px;
+           }
+           ul{
+                font-size: 13px;
+           }
+           .infos-titre{
+                font-size: 13px;
+           }
+        }
+        h1{
+            font-size: 20px;
+            width: 100%;
+            padding-top: 30%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Récuperateur d'informations d'utilisateurs instagram</h1>
+    </header>
+    <form action="/get_info" method="post">
+        <input class="text" name="username" type="text">
+        <input class="button" type="submit" value="Rechercher les infos">
+    </form>
+    {% if pp is not none %}
+    <div class="name">
+        <p class="infos-titre">Infos sur l'utilisateurs :</p>
+        <ul> 
+            <li>Nom complet : {{ name }}</li>
+            <li>Bio : {{ bio }}</li>
+            <li>Nombre de followers : {{ followers }}</li>
+            <li>Site web de la personne : {{ website }}</li>
+            <li>ID de l'utilisateur : {{ userid }}</li>
+            <li>Nombre de publication : {{ publication_number }}</li>
+            <li>Est ce que le profile est privé : {{ private }}</li>
+            <li>Est ce que le profile est verifé : {{ verified }}</li>
+        </ul>
+    </div>
+    {% endif %}
+</body>
+</html>
