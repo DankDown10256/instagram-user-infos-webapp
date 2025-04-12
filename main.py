@@ -3,6 +3,15 @@ import instaloader
 
 app = Flask(__name__)
 
+@app.errorhandler(404)
+def not_found(error):
+    return render_template('404.html')
+
+@app.errorhandler(500)
+def pas_accessible(error):
+    return render_template('401.html'), 500
+    
+
 @app.route('/', methods=['GET'])
 def home():
     return render_template('index.html')
@@ -35,4 +44,4 @@ def info():
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=50, debug=True)
+    app.run(host="0.0.0.0", port=50, debug=False)
